@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Shop</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h2>🐾Pet Shop🐾</h2>
+        <nav>
+            <a href="#catalog">Каталог</a>
+            <a href="#sales">Акції</a>
+            <a href="#delivery">Доставка і оплата</a>
+            <a href="#about">Про нас</a>
+        </nav>
+        <input type="text" placeholder="Пошук товарів">
+        <div class="cart">
+            🛒<span id="cart-count">0</span>
+        </div>
+    </header>
+    <main> 
+        <section class = "banner"> 
+            <div class ="banner-text">
+                <h4>Турбота про Ваших улюбленців</h4>
+                <h1>Все для щасливих хвостиків</h1>
+                <p>Корм, іграшки, аксесуари та багато іншого для собак, котів та інших домашніх улюбленців.</p>
+                <a href="#catalog" class="button">Перейти до каталогу</a>
+            </div>
+            <img src="images/banner.png" alt="Banner Image">
+            </section>
+
+            <section class = "categories" id="catalog">
+              <div>🐶 <p>Для собак</p></div>
+              <div>🐱 <p>Для котів</p></div>
+              <div>🐦 <p>Для птахів</p></div>
+              <div>🐠 <p>Для риб</p></div>
+              <div>🐰 <p>Для гризунів</p></div>
+              <div>🥣 <p>Корм</p></div>
+              <div>🧸 <p>Іграшки</p></div>
+              <div>🛏️ <p>Догляд</p></div>
+            </section>    
+            <section id="popular">
+                <div class = "section-title">
+                    <h2>Популярні товари</h2>
+                    <a href="#catalog">Дивитися всі</a>
+                </div>
+
+                <div class = "products" id ="popular-products">
+                </div>
+            </section>
+
+
+            <section id="new">
+                <div class = "section-title">
+                    <h2>Новинки</h2>
+                    <a href="#catalog">Дивитися всі</a>
+                </div>
+
+                <div class = "products" id ="new-products">
+                </div>
+            </section>
+
+
+             <section id="sales">
+                <div class = "section-title">
+                    <h2>Акції</h2>
+                    <a href="#catalog">Дивитися всі</a>
+                </div>
+
+                <div class = "products" id ="sale-products">
+                </div>
+            </section>
+
+            <section class = "benefits" id = "delivery">
+                <div> 
+                    <span>🚚</span>
+                    <h4>Швидка доставка</h4>
+                    <p>По всій Україні</p>
+                </div>
+
+                <div>
+                <span>🛡️</span>    
+                <h4>Гарантія якості</h4>
+                    <p>Тільки перевірені товари</p>
+                </div>
+
+                <div>
+                    <span>📞</span>
+                    <h4>Підтримка клієнтів</h4>
+                    <p>Наша команда завжди готова допомогти вам</p>
+                </div>
+                
+                <div>
+                    <span>💚</span>
+                    <h4>Турбота про тварин</h4>
+                    <p>Разом робимо світ добрішим</p>
+
+                </div>
+                </section>
+    </main>
+    <footer id = "about">
+        <div>
+        <h2>🐾Pet Shop🐾</h2>
+        <p>Щасливі улюбленці - <br>щасливі люди!</p>
+        <p>◎ &nbsp; f &nbsp; ➤</p>
+        </div>
+
+        <div>
+             <h3>Каталог</h3>
+             <p> Для собак</p>
+             <p> Для котів</p>
+             <p> Для птахів</p>
+             <p> Для риб</p>
+             <p> Корм</p>
+             <p> Іграшки</p>
+             <p> Догляд</p>
+        </div>
+
+        <div>
+            <h3>Інформація</h3>
+            <p>Доставка і оплата</p>
+            <p>Обмін та повернення</p>
+            <p>Про нас</p>
+            <p>Контакти</p>
+            <p>Блог</p>
+        </div>
+
+        <div>
+            <h3>Контакти</h3>
+            <p>☎ +38 (000) 000-00-00</p>
+            <p>✉ Email: petshop@gmail.com</p>
+            <p>🏠 Адреса: м. Київ, вул. Петра Сагайдачного, 10</p>
+            <p>🕒 Графік роботи: Пн-Пт 9:00-18:00</p>
+        </div>
+    </footer>
+    <div class="copyright">
+        <p>&copy; 2026 Pet Shop. Всі права захищені.</p>
+    </div>
+    <script src="script.js"></script>
+</body>
