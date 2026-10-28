@@ -1,0 +1,134 @@
+[
+  {
+    "id": 1,
+    "title": "Корм для собак з куркою",
+    "price": 890,
+    "category": "Собаки",
+    "type": "Корм",
+    "section": "popular",
+    "emoji": "🐶",
+    "oldPrice": null,
+    "image": "https://loremflickr.com/640/480/dog,food?lock=101"
+  },
+  {
+    "id": 2,
+    "title": "Іграшка-м’яч для собак",
+    "price": 230,
+    "category": "Собаки",
+    "type": "Іграшки",
+    "section": "popular",
+    "emoji": "🎾",
+    "oldPrice": null,
+    "image": "https://loremflickr.com/640/480/dog,ball?lock=102"
+  },
+  {
+    "id": 3,
+    "title": "Корм для котів з лососем",
+    "price": 720,
+    "category": "Коти",
+    "type": "Корм",
+    "section": "popular",
+    "emoji": "🐱",
+    "oldPrice": null,
+    "image": "https://loremflickr.com/640/480/cat,food?lock=103"
+  },
+  {
+    "id": 4,
+    "title": "Лежанка для котів",
+    "price": 1150,
+    "category": "Коти",
+    "type": "Догляд",
+    "section": "popular",
+    "emoji": "🛏️",
+    "oldPrice": null,
+    "image": "https://loremflickr.com/640/480/cat,bed?lock=104"
+  },
+  {
+    "id": 5,
+    "title": "Ласощі для папуг",
+    "price": 180,
+    "category": "Птахи",
+    "type": "Корм",
+    "section": "new",
+    "emoji": "🐦",
+    "oldPrice": null,
+    "image": "https://loremflickr.com/640/480/parrot,food?lock=105"
+  },
+  {
+    "id": 6,
+    "title": "Акваріумний декор",
+    "price": 360,
+    "category": "Риби",
+    "type": "Догляд",
+    "section": "new",
+    "emoji": "🐠",
+    "oldPrice": null,
+    "image": "https://loremflickr.com/640/480/aquarium,decoration?lock=106"
+  },
+  {
+    "id": 7,
+    "title": "Будиночок для хом’яка",
+    "price": 540,
+    "category": "Гризуни",
+    "type": "Догляд",
+    "section": "new",
+    "emoji": "🐹",
+    "oldPrice": null,
+    "image": "https://loremflickr.com/640/480/hamster,house?lock=107"
+  },
+  {
+    "id": 8,
+    "title": "Канатна іграшка",
+    "price": 290,
+    "category": "Собаки",
+    "type": "Іграшки",
+    "section": "new",
+    "emoji": "🪢",
+    "oldPrice": null,
+    "image": "https://loremflickr.com/640/480/dog,rope,toy?lock=108"
+  },
+  {
+    "id": 9,
+    "title": "Шампунь для собак",
+    "price": 310,
+    "category": "Собаки",
+    "type": "Догляд",
+    "section": "sale",
+    "emoji": "🧴",
+    "oldPrice": 388,
+    "image": "https://loremflickr.com/640/480/dog,shampoo?lock=109"
+  },
+  {
+    "id": 10,
+    "title": "Іграшка-мишка для котів",
+    "price": 160,
+    "category": "Коти",
+    "type": "Іграшки",
+    "section": "sale",
+    "emoji": "🐭",
+    "oldPrice": 200,
+    "image": "https://loremflickr.com/640/480/cat,toy,mouse?lock=110"
+  },
+  {
+    "id": 11,
+    "title": "Корм для риб",
+    "price": 210,
+    "category": "Риби",
+    "type": "Корм",
+    "section": "sale",
+    "emoji": "🐟",
+    "oldPrice": 262,
+    "image": "https://loremflickr.com/640/480/fish,food?lock=111"
+  }, 
+
+  {
+    "id": 12,
+    "title": "Поїлка для гризунів",
+    "price": 260,
+    "category": "Гризуни",
+    "type": "Догляд",
+    "section": "sale",
+    "oldPrice": 325,
+    "image": "https://loremflickr.com/640/480/fish,food?lock=111"
+  }
+]
