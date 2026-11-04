@@ -1,4 +1,4 @@
-plet products = [];
+let products = [];
 let cart = [];
 let currentFilter = "";
 
@@ -75,3 +75,137 @@ function displayProducts() {
             product.type === currentFilter) &&
             product.title.toLocaleLowerCase("uk-UA").includes(term)
     );
+    
+    Objects.entries(sections).forEach(([section, selector]) => {
+        const cards = filtered.filter(product => product.section === section)
+        $(selector).innerHTML = cards.length
+            ? cards.map(productCard).join("")
+            : `<p>Товари не знайдено</p>`;
+    });
+}
+
+function addToCart(id) {
+    const product = products.find(item => item.id === id);
+    if (!product) return;
+    const item = cart.find(item => item.id === id);
+    if (item) {
+        item.quantity++;
+    } else {
+        cart.push({id, quantity: 1});
+    }
+    updateCart();
+    showToast(`Товар "${product.title}" додано до кошика`);
+}
+
+function changeQuantity(id, change) {
+    const item = cart.find(item => item.id === id);
+    if (!item) return;
+    item.quantity += change;
+    cart = cart.filter(item => item.quantity > 0);
+    updateCart();
+}
+
+function updateCart(save = true) {
+    if (save) saveCart();
+    $("#cart-count").textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+    displayCart();
+}
+
+function displayCart() {
+    let total = 0;
+    const rows = cart.map(item => {
+        const product = products.find(product => product.id === item.id);
+        if (!product) return "";
+        const price = product.price * item.quantity;
+        total += price;
+        return `<div class="cart-item">
+         <div>
+         <strong>${escapeHtml(product.title)}</strong>
+         <p>${money(product.price)} 
+         </div>
+
+         <div class="qty-controls">
+         <button type="button" 
+         data-id="${item.id}" data-change="-1">
+         aria-label="Зменшити кількість">➖</button>
+
+            <span>${item.quantity}</span>
+
+            <button type="button"
+            data-id="${item.id}" data-change="1"
+            aria-label="Збільшити кількість">➕</button>
+
+            <button type="button"
+            data-id="${item.id}" data-change="${-item.quantity}"
+            aria-label="Видалити товар">🗑️</button>
+         </div>
+    </div>`;
+    }).join("");
+
+    $("#cartItems").innerHTML = rows || "<p>Кошик порожній</p>";
+    $("#totalPrice").textContent = money(total);
+}
+
+function showToast(message) {
+    const toast =$("#toast");
+    toast.textContent = message;
+    toast.classList.add("visible");
+    clearTimeout(showToast.timer);
+    showToast.timer = setTimeout(() => {
+        toast.classList.remove("visible");
+    }, 3000);
+}
+
+async function fetchProducts() {
+    try {
+        const response = await fetch("store_DB.json");
+        if (!response.ok) throw new Error("Помилка завантаження даних");
+        const data = await response.json();
+        if (!Array.isArray(data)) throw new Error("Невірний формат даних");
+        products = data;
+        displayProducts();
+        displayCart();
+    } catch (error) {
+        console.error("Не вдалося завантажити товари:", error);
+        Objects.values(sections).forEach(selector => {
+            $(selector).textContent = `<p>Не вдалося завантажити товари</p>`;
+        });
+    }
+}
+
+$("#search").addEventListener("input", displayProducts);
+document.addEventListener("click", event => {
+    const add = event.target.closest("[data-add]");
+    const quantity = event.target.closest("[data-change]");
+    if (add) {
+        addToCart(Number(add.dataset.add));
+    }
+    if (quantity) {
+        changeQuantity(Number(quantity.dataset.id), Number(quantity.dataset.change));
+    }
+});
+
+document.querySelectorAll('.categories > div').forEach(element => {
+  element.setAttribute('role', 'button');
+  element.tabIndex = 0;
+  function activate() {
+    const category = categories[element.querySelector('p')?.textContent.trim()];
+    currentFilter = currentFilter === category ? '' : category;
+    document.querySelectorAll('.categories > div').forEach(card => {
+      card.classList.toggle('selected', !!currentFilter && categories[card.querySelector('p')?.textContent.trim()] === currentFilter);
+    });
+    displayProducts();
+  }
+  element.addEventListener('click', activate);
+  element.addEventListener('keydown', event => {
+    if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); activate(); }
+  });
+});
+
+const dialog = $('#cart-dialog');
+$('#open-cart').addEventListener('click', () => dialog.showModal());
+$('#close-cart').addEventListener('click', () => dialog.close());
+dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
+
+loadCart();
+fetchProducts();

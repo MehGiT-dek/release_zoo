@@ -15,10 +15,10 @@
             <a href="#delivery">Доставка і оплата</a>
             <a href="#about">Про нас</a>
         </nav>
-        <input type="text" placeholder="Пошук товарів">
-        <div class="cart">
+        <input type="search" id="search" placeholder="Пошук товарів" aria-label="Пошук товарів">
+        <button class="cart" id="open-cart" type="button" aria-label="Відкрити кошик">
             🛒<span id="cart-count">0</span>
-        </div>
+        </button>
     </header>
     <main> 
         <section class = "banner"> 
@@ -99,6 +99,11 @@
 
                 </div>
                 </section>
+      <dialog id="cart-dialog" aria-labelledby="cart-title">
+        <div class="cart-heading"><h2 id="cart-title">Ваш кошик</h2><button id="close-cart" type="button" aria-label="Закрити">✕</button></div>
+        <div id="cartItems"></div><p class="cart-total">Разом: <strong id="totalPrice">0 грн</strong></p>
+      </dialog>
+      <div id="toast" role="status" aria-live="polite"></div>
     </main>
     <footer id = "about">
         <div>
@@ -108,35 +113,3 @@
         </div>
 
         <div>
-             <h3>Каталог</h3>
-             <p> Для собак</p>
-             <p> Для котів</p>
-             <p> Для птахів</p>
-             <p> Для риб</p>
-             <p> Корм</p>
-             <p> Іграшки</p>
-             <p> Догляд</p>
-        </div>
-
-        <div>
-            <h3>Інформація</h3>
-            <p>Доставка і оплата</p>
-            <p>Обмін та повернення</p>
-            <p>Про нас</p>
-            <p>Контакти</p>
-            <p>Блог</p>
-        </div>
-
-        <div>
-            <h3>Контакти</h3>
-            <p>☎ +38 (000) 000-00-00</p>
-            <p>✉ Email: petshop@gmail.com</p>
-            <p>🏠 Адреса: м. Київ, вул. Петра Сагайдачного, 10</p>
-            <p>🕒 Графік роботи: Пн-Пт 9:00-18:00</p>
-        </div>
-    </footer>
-    <div class="copyright">
-        <p>&copy; 2026 Pet Shop. Всі права захищені.</p>
-    </div>
-    <script src="script.js"></script>
-</body>
