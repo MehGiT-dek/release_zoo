@@ -102,7 +102,7 @@ function showToast(message) {
 
 async function fetchProducts() {
   try {
-    const response = await fetch('store_db.json');
+    const response = await fetch('./store_db.json');
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const data = await response.json();
     if (!Array.isArray(data)) throw new Error('Невірний формат JSON');
